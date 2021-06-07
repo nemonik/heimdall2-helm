@@ -27,7 +27,7 @@ openssl rand -hex 33
 And to to generate a value for JWS_SECRET consider using 
 
 ```bash
-openssl rand -hex 64` and set
+openssl rand -hex 64
 ```
 
 ## To install via my chart repository
