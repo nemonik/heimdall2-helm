@@ -1,0 +1,98 @@
+nodeEnv: production
+
+## Set FDQN for external database host or set `posgresql.enabled` equal to `true`
+## 
+#databaseHost: postgresql.example.com
+
+## Set external database port or set `posgresql.enabled` equal to `true`
+##
+#databasePort: 5672
+
+databaseName: heimdall-server-production
+
+databaseUsername: postgres
+
+## Set postgres user's password via `openssl rand -hex 33` 
+databasePassword: long-random-string-of-text
+
+## Generate the following via `openssl rand -hex 64` and set
+##
+jwtSecret: long-random-string-of-text
+
+## Set `1d` or `25m`
+##
+jwtTimeout: 25m
+
+
+postgresql:
+  enabled: true
+
+  image:
+    repository: postgres
+    pullPolicy: IfNotPresent
+    tag: "13"
+
+  persistence:
+    ## Volume used to store the Heimdall's data. Default is boolean `false`.
+    ##
+    enabled: false
+    size: "100Mi"
+    ## Sets persistent volume claim's storageClassName. Defaults to `default`.
+    ##
+    storageClassName: "default"
+    accessMode: "ReadWriteOnce"
+
+  service:
+    type: ClusterIP
+    port: 5672
+
+  podAnnotations: {}
+
+  podSecurityContext: {}
+
+  securityContext: {}
+
+  resources: {}
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+
+heimdall:
+
+  image:
+    repository: mitre/heimdall2
+    pullPolicy: IfNotPresent
+#    tag: "latest"
+
+  service:
+    type: ClusterIP
+    port: 3000
+
+  ingress:
+    enable: false
+    annotations:
+     # traefik.ingress.kubernetes.io/router.entrypoints: websecure
+     # traefik.ingress.kubernetes.io/router.tls: "true"
+     # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
+    hosts:
+      - host: heimdall.example.com
+        paths:
+          -  "/"
+
+  podAnnotations: {}
+  
+  podSecurityContext: {}
+  
+  securityContext: {}
+  
+  resources: {}
+  
+  nodeSelector: {}
+  
+  tolerations: []
+  
+  affinity: {}
