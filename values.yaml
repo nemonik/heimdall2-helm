@@ -10,18 +10,18 @@ nodeEnv: production
 
 databaseName: heimdall-server-production
 
-databaseUsername: postgres
+# databaseUsername: postgres
 
 ## Set postgres user's password via `openssl rand -hex 33` 
-databasePassword: long-random-string-of-text
+# databasePassword: long-random-string-of-text
 
 ## Generate the following via `openssl rand -hex 64` and set
 ##
-jwtSecret: long-random-string-of-text
+# jwtSecret: long-random-string-of-text
 
 ## Set `1d` or `25m`
 ##
-jwtTimeout: 25m
+# jwtTimeout: 25m
 
 
 postgresql:
@@ -73,13 +73,16 @@ heimdall:
     port: 3000
 
   ingress:
-    enable: false
+    tls: 
+      - name: nginx
+        secretName: nginx-ingress
+    enabled: true
     annotations:
      # traefik.ingress.kubernetes.io/router.entrypoints: websecure
      # traefik.ingress.kubernetes.io/router.tls: "true"
      # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: heimdall.example.com
+      - host: localhost
         paths:
           -  "/"
 
@@ -96,3 +99,21 @@ heimdall:
   tolerations: []
   
   affinity: {}
+
+# nginx config values
+nginx-ingress:
+  # controller: 
+  #   defaultTLS:
+  #     cert: nginx/cert/ssl_certificate.crt
+  #     key:  nginx/cert/ssl_certificate_key.key
+    volumeMounts:
+      - mountPath: /etc/nginx/template
+        name: nginx-template-volume
+        readOnly: true
+    volumes:
+      - name: nginx-template-volume
+        configMap:
+          name: nginx-template
+          items:
+          - key: nginx.tmpl
+            path: nginx/conf/nginx.tmpl

@@ -9,4 +9,4 @@
 
 # Uninstall Heimdall2
 
-helm uninstall heimdall2 --namespace heimdall2
+helm uninstall heimdall --namespace heimdall
