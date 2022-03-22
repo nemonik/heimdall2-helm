@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  nginx-main.tpl: "upstream backend {\n    server server:3000;\n}\nmap $sent_http_content_type
+    $charset {\n\t    ~^text/ utf-8;\n}\n\nserver {\n    listen 80;\n    listen [::]:80;\n
+    \   server_name ${NGINX_HOST};\n    return 301 https://$server_name$request_uri;\n}\n\nserver
+    {\n    listen 443 ssl http2;\n    listen [::]:443 ssl http2;\n    server_name
+    ${NGINX_HOST};\n\n    client_max_body_size 100m;\n\n    proxy_set_header    X-Forwarded-Host
+    \  $host;\n    proxy_set_header    X-Forwarded-Server $host;\n    proxy_set_header
+    \   X-Forwarded-For    $proxy_add_x_forwarded_for;\n    proxy_set_header    X-Forwarded-Proto
+    \ $scheme;\n    proxy_set_header    X-Real-IP          $remote_addr;\n    proxy_set_header
+    \   Host               $host;\n\n    location / {\n\t\tadd_header Access-Control-Allow-Origin
+    *;\n\t\ttry_files $uri @proxy;\n\t}\n\n    location @proxy {\n        proxy_buffers
+    32 5m;\n        proxy_buffer_size 5m;\n\t\tproxy_set_header X-Real-IP $remote_addr;\n\t\tproxy_set_header
+    X-Forwarded-For $proxy_add_x_forwarded_for;\n\t\tproxy_set_header Host $http_host;\n\t\tproxy_set_header
+    X-NginX-Proxy true;\n\t\tproxy_pass http://backend;\n\t\tproxy_redirect off;\n\t\tproxy_http_version
+    1.1;\n\t\tproxy_set_header Upgrade $http_upgrade;\n\t\tproxy_set_header Connection
+    \"upgrade\";\n\t\tproxy_set_header X-Forwarded-Proto $scheme;\n\t}\n}"
+kind: ConfigMap
+metadata:
+  name: nginx-template
+  namespace: heimdall
