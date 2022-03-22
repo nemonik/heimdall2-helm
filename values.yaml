@@ -82,7 +82,7 @@ heimdall:
      # traefik.ingress.kubernetes.io/router.tls: "true"
      # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: localhost
+      - host: heimdall.example.com
         paths:
           -  "/"
 
@@ -102,7 +102,7 @@ heimdall:
 
 # nginx config values
 nginx-ingress:
-  # controller: 
+  controller: 
   #   defaultTLS:
   #     cert: nginx/cert/ssl_certificate.crt
   #     key:  nginx/cert/ssl_certificate_key.key
@@ -115,5 +115,5 @@ nginx-ingress:
         configMap:
           name: nginx-template
           items:
-          - key: nginx.tmpl
-            path: nginx/conf/nginx.tmpl
+          - key: nginx-main.tpl
+            path: nginx-main.tpl

@@ -43,4 +43,5 @@ helm install heimdall . \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \
-    --set   jwtTimeout=$JWT_TIMEOUT
+    --set   jwtTimeout=$JWT_TIMEOUT # --debug --dry-run 
+    
