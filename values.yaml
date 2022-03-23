@@ -75,7 +75,9 @@ heimdall:
   ingress:
     tls: 
       - name: nginx
-        secretName: nginx-ingress
+        secretName: ingress-secret
+        hosts:
+          - heimdall.example.com
     enabled: true
     annotations:
      # traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -84,7 +86,13 @@ heimdall:
     hosts:
       - host: heimdall.example.com
         paths:
-          -  "/"
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: heimdall
+                port:
+                  number: 3000
 
   podAnnotations: {}
   
@@ -103,17 +111,16 @@ heimdall:
 # nginx config values
 nginx-ingress:
   controller: 
-  #   defaultTLS:
-  #     cert: nginx/cert/ssl_certificate.crt
-  #     key:  nginx/cert/ssl_certificate_key.key
-    volumeMounts:
-      - mountPath: /etc/nginx/template
-        name: nginx-template-volume
-        readOnly: true
-    volumes:
-      - name: nginx-template-volume
-        configMap:
-          name: nginx-template
-          items:
-          - key: nginx-main.tpl
-            path: nginx-main.tpl
+    defaultTLS:
+      secret: heimdall/ingress-secret
+    # volumeMounts:
+    #   - mountPath: /etc/nginx/template
+    #     name: nginx-template-volume
+    #     readOnly: true
+    # volumes:
+    #   - name: nginx-template-volume
+    #     configMap:
+    #       name: nginx-template
+    #       items:
+    #       - key: nginx-main.tpl
+    #         path: nginx-main.tpl

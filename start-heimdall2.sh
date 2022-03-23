@@ -38,10 +38,9 @@ NGINX_KEY="$(cat nginx/certs/ssl_certificate_key.key | base64)"
 # Install heimdall
 helm install heimdall . \
     --namespace heimdall --create-namespace -f values.yaml \
-    --set   nginx-ingress.controller.defaultTLS.cert=$NGINX_CRT \
-    --set   nginx-ingress.controller.defaultTLS.key=$NGINX_KEY \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \
-    --set   jwtTimeout=$JWT_TIMEOUT # --debug --dry-run 
-    
+    --set   jwtTimeout=$JWT_TIMEOUT \
+    --set   nginx-ingress.controller.defaultTLS.cert=$NGINX_CRT \
+    --set   nginx-ingress.controller.defaultTLS.key=$NGINX_KEY --debug --dry-run
