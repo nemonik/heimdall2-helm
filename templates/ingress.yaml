@@ -33,20 +33,15 @@ spec:
       http:
         paths:
         {{- range .paths }}
-          - path: {{ . }}
-            pathType: Prefix
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
             backend:
-              {{- if semverCompare ">=1.19-0" $kubeVersion }}
               service:
-                name: {{ $fullName }}
+                name: {{ .backend.service.name }}
                 port:
-                  name: http
-              {{- else if semverCompare ">=1.14-0" $kubeVersion }}
-              backend:
-                serviceName: {{ $fullName }}
-                servicePort: http
-              {{- end }}
-        {{- end }}
+                  number: {{ .backend.service.port.number }}
+
+    {{- end }}
   {{- end }}
 {{- end }}
 {{- end }}
