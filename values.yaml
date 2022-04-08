@@ -66,25 +66,25 @@ heimdall:
   image:
     repository: mitre/heimdall2
     pullPolicy: IfNotPresent
-#    tag: "latest"
+    tag: "latest"
 
   service:
     type: ClusterIP
     port: 3000
 
   ingress:
-    tls: 
-      - name: nginx
-        secretName: ingress-secret
-        hosts:
-          - heimdall.example.com
+    # tls: 
+    #   - name: nginx
+    #     secretName: ingress-secret
+    #     hosts:
+    #       - heimdall.example.com
     enabled: true
     annotations:
      # traefik.ingress.kubernetes.io/router.entrypoints: websecure
      # traefik.ingress.kubernetes.io/router.tls: "true"
      # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: heimdall.example.com
+      - host: mxs.apps.cdl.af.mil
         paths:
           - path: /
             pathType: Prefix
@@ -107,20 +107,3 @@ heimdall:
   tolerations: []
   
   affinity: {}
-
-# nginx config values
-nginx-ingress:
-  controller: 
-    defaultTLS:
-      secret: heimdall/ingress-secret
-    # volumeMounts:
-    #   - mountPath: /etc/nginx/template
-    #     name: nginx-template-volume
-    #     readOnly: true
-    # volumes:
-    #   - name: nginx-template-volume
-    #     configMap:
-    #       name: nginx-template
-    #       items:
-    #       - key: nginx-main.tpl
-    #         path: nginx-main.tpl
