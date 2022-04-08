@@ -84,7 +84,7 @@ heimdall:
      # traefik.ingress.kubernetes.io/router.tls: "true"
      # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: mxs.apps.cdl.af.mil
+      - host: heimdall.example.com
         paths:
           - path: /
             pathType: Prefix
