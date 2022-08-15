@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright (C) 2020 Michael Joseph Walsh - All Rights Reserved
 # You may use, distribute and modify this code under the
@@ -12,11 +12,14 @@ DATABASE_USERNAME="postgres"
 DATABASE_PASSWORD="$(openssl rand -hex 33)"
 JWT_SECRET="$(openssl rand -hex 64)"
 JWT_TIMEOUT="1d"
+API_KEY_SECRET="$(openssl rand -hex 33)"
 
 # Install heimdall
 helm install heimdall . \
+     -n mxs \
      -f values.yaml \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \
-    --set   jwtTimeout=$JWT_TIMEOUT 
+    --set   jwtTimeout=$JWT_TIMEOUT \
+    --set   apiKeySecret=$API_KEY_SECRET 
