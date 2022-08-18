@@ -54,7 +54,7 @@ spec:
                   name: {{ include "heimdall.fullname" . }}
                   key: databasePassword
           volumeMounts:
-            - mountPath: "/var/lib/postgresql/data/pgdata"
+            - mountPath: "/var/lib/postgresql/data"
               name: postgresql-data
           {{- with .Values.postgresql.resources }}
           resources:

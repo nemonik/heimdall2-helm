@@ -8,9 +8,8 @@ nodeEnv: production
 ##
 #databasePort: 5672
 
-databaseName: heimdall-server-production
-
-# databaseUsername: postgres
+databaseName: heimdall-database
+databaseUsername: postgres
 
 ## Set postgres user's password via `openssl rand -hex 33` 
 # databasePassword: long-random-string-of-text
