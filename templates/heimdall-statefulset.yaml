@@ -71,6 +71,8 @@ spec:
                   key: jwtSecret
             - name: JWT_TIMEOUT
               value: {{ .Values.jwtTimeout | quote }}
+            - name: API_KEY_SECRET
+              value: {{ .Values.apiKeySecret | quote }}
           livenessProbe:
             httpGet:
               path: /

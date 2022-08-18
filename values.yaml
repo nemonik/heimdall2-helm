@@ -7,7 +7,6 @@ nodeEnv: production
 ## Set external database port or set `posgresql.enabled` equal to `true`
 ##
 #databasePort: 5672
-
 databaseName: heimdall-database
 databaseUsername: postgres
 
@@ -106,3 +105,4 @@ heimdall:
   tolerations: []
   
   affinity: {}
+
