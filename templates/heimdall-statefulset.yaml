@@ -73,6 +73,20 @@ spec:
               value: {{ .Values.jwtTimeout | quote }}
             - name: API_KEY_SECRET
               value: {{ .Values.apiKeySecret | quote }}
+            - name: OIDC_NAME
+              value: {{ .Values.oidcName | quote }}
+            - name: OIDC_ISSUER
+              value: {{ .Values.oidcIssuer | quote }}
+            - name: OIDC_AUTHORIZATION_URL
+              value: {{ .Values.oidcAuthorizationUrl | quote }}
+            - name: OIDC_TOKEN_URL
+              value: {{ .Values.oidcTokenUrl | quote }}
+            - name: OIDC_USER_INFO_URL
+              value: {{ .Values.oidcUserInfoUrl | quote }}
+            - name: OIDC_CLIENTID
+              value: {{ .Values.oidcClientId | quote }}
+            - name: OIDC_CLIENT_SECRET
+              value: {{ .Values.oidcClientSecret | quote }}
           livenessProbe:
             httpGet:
               path: /
