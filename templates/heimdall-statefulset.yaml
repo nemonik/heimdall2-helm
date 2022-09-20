@@ -75,6 +75,8 @@ spec:
               value: {{ .Values.apiKeySecret | quote }}
             - name: OIDC_NAME
               value: {{ .Values.oidcName | quote }}
+            - name: EXTERNAL_URL
+              value: {{ .Values.oidcExternalUrl | quote }}
             - name: OIDC_ISSUER
               value: {{ .Values.oidcIssuer | quote }}
             - name: OIDC_AUTHORIZATION_URL
