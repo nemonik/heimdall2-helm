@@ -31,4 +31,5 @@ helm install heimdall . \
     --set   oidcTokenUrl=$OIDC_TOKEN_URL \
     --set   oidcUserInfoUrl=$OIDC_USER_INFO_URL \
     --set   oidcClientId=$OIDC_CLIENTID \
-    --set   oidcClientSecret=$OIDC_CLIENT_SECRET
+    --set   oidcClientSecret=$OIDC_CLIENT_SECRET \
+    --set   externalUrl=$EXTERNAL_URL

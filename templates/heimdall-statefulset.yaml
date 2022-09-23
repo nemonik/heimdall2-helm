@@ -76,17 +76,19 @@ spec:
             - name: OIDC_NAME
               value: {{ .Values.oidcName | quote }}
             - name: OIDC_ISSUER
-              value: {{ .Values.oidcIssuer | quote }}
+              value: {{ .Values.oidcIssuer}}
             - name: OIDC_AUTHORIZATION_URL
-              value: {{ .Values.oidcAuthorizationUrl | quote }}
+              value: {{ .Values.oidcAuthorizationUrl}}
             - name: OIDC_TOKEN_URL
-              value: {{ .Values.oidcTokenUrl | quote }}
+              value: {{ .Values.oidcTokenUrl}}
             - name: OIDC_USER_INFO_URL
-              value: {{ .Values.oidcUserInfoUrl | quote }}
+              value: {{ .Values.oidcUserInfoUrl}}
             - name: OIDC_CLIENTID
-              value: {{ .Values.oidcClientId | quote }}
+              value: {{ .Values.oidcClientId}}
             - name: OIDC_CLIENT_SECRET
-              value: {{ .Values.oidcClientSecret | quote }}
+              value: {{ .Values.oidcClientSecret}}
+            - name: EXTERNAL_URL
+              value: {{ .Values.externalUrl}}
           livenessProbe:
             httpGet:
               path: /
