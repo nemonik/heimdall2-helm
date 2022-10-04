@@ -14,7 +14,7 @@ You can clone this repo, enter the repository folder and then execute something 
 ./start_heimdal2.sh
 ```
 
-The script will spin up Heimdall2 using the example [example_values.yaml](example_values.yaml) values file.  You will need
+The script will spin up Heimdall2 using the example [values.yaml](values.yaml) values file.  You will need
 to provide your own if you want to configure other settings, and ingress, etc.  Look at the [values.yaml](values.yaml)
 file for what to place in your own.
 
@@ -30,18 +30,21 @@ And to to generate a value for JWS_SECRET consider using
 openssl rand -hex 64
 ```
 
-## To install via my chart repository
+The start_heimdall.sh script generates some of these values for you, and demonstrates how to pass in values from the cli instead of using the values.yaml file via the `--set` flag.
+
+## To install via MITRE chart repository
 
 ```
-helm repo add nemonik https://nemonik.github.io/helm-charts/
+helm repo add nemonik https://mitre.github.io/heidmall2-helm/
 helm repo update
 helm search repo heimdall2
-wget https://raw.githubusercontent.com/nemonik/heimdall2-helm/master/example-values.yaml
-helm install heimdall2 nemonik/heimdall2 --namespace heimdall2 --create-namespace -f example-values.yaml
+wget https://raw.githubusercontent.com/mitre/heimdall2-helm/master/values.yaml
+vi values.yaml # configure values.yaml for your organization
+helm install heimdall heimdall2-helm/heimdall --namespace heimdall --create-namespace -f values.yaml
 watch -n 15 kubectl get pods -n heimdall2
 ```
 
-Give it time for Heimdall2 to come fully up.  It has to "migrate" data...  It takes a while.
+Give it time for Heimdall2 to come fully up.  It has to "migrate" data, and the frontend site needs to build. It takes a few minutes.
 
 ## Accessing Heimdall2
 
@@ -73,8 +76,6 @@ heimdall:
 This example uses Traefik to expose the ingress.  Configuring Traefik is out of scope of this 
 readme.  
 
-In my forthcoming updated Hands-on DevOps class I do this exposing Heimdall2 over https, so when that
-drops you can find some insight how to do so there.
 
 ## License
 
@@ -83,3 +84,4 @@ drops you can find some insight how to do so there.
 ## Author Information
 
 Michael Joseph Walsh <mjwalsh@nemonik.com>
+MITRE SAF team <saf@groups.mitre.org>
