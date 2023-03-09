@@ -7,10 +7,8 @@ nodeEnv: production
 ## Set external database port or set `posgresql.enabled` equal to `true`
 ##
 #databasePort: 5672
-
-databaseName: heimdall-server-production
-
-# databaseUsername: postgres
+databaseName: heimdall-database
+databaseUsername: postgres
 
 ## Set postgres user's password via `openssl rand -hex 33` 
 # databasePassword: long-random-string-of-text
@@ -80,11 +78,11 @@ heimdall:
     #       - heimdall.example.com
     enabled: true
     annotations:
-     # traefik.ingress.kubernetes.io/router.entrypoints: websecure
-     # traefik.ingress.kubernetes.io/router.tls: "true"
-     # traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
+     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+     traefik.ingress.kubernetes.io/router.tls: "true"
+     traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: heimdall.example.com
+      - host: heimdall-test.sandbox.c2il.org
         paths:
           - path: /
             pathType: Prefix
@@ -107,3 +105,4 @@ heimdall:
   tolerations: []
   
   affinity: {}
+

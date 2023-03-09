@@ -22,7 +22,7 @@ spec:
         {{- include "heimdall.selectorLabels" . | nindent 8 }}
         app.kubernetes.io/component: heimdall
     spec:
-      {{- with .Values.heimdall.imagePullSecrets }}
+      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
@@ -52,7 +52,7 @@ spec:
             {{- else }}
               value: {{.Values.databasePort | quote }}
             {{- end }}           
-            - name: POSTGRES_DB
+            - name: DATABASE_NAME
               value: {{ .Values.databaseName | quote }}
             - name: DATABASE_USERNAME
               valueFrom:
@@ -75,6 +75,8 @@ spec:
               value: {{ .Values.apiKeySecret | quote }}
             - name: OIDC_NAME
               value: {{ .Values.oidcName | quote }}
+            - name: EXTERNAL_URL
+              value: {{ .Values.oidcExternalUrl | quote }}
             - name: OIDC_ISSUER
               value: {{ .Values.oidcIssuer}}
             - name: OIDC_AUTHORIZATION_URL

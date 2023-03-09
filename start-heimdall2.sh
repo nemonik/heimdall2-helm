@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Copyright (C) 2020 Michael Joseph Walsh - All Rights Reserved
@@ -18,7 +19,6 @@ API_KEY_SECRET="$(openssl rand -hex 33)"
 
 # Install heimdall
 helm install heimdall . \
-     -n $NAMESPACE \
      -f values.yaml \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
@@ -26,6 +26,7 @@ helm install heimdall . \
     --set   jwtTimeout=$JWT_TIMEOUT \
     --set   apiKeySecret=$API_KEY_SECRET \
     --set   oidcName=$OIDC_NAME \
+    --set   oidcExternalUrl=$EXTERNAL_URL \
     --set   oidcIssuer=$OIDC_ISSUER \
     --set   oidcAuthorizationUrl=$OIDC_AUTHORIZATION_URL \
     --set   oidcTokenUrl=$OIDC_TOKEN_URL \
