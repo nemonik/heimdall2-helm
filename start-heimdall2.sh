@@ -19,7 +19,7 @@ API_KEY_SECRET="$(openssl rand -hex 33)"
 NAMESPACE="heimdall"
 
 # Install heimdall
-helm install heimdall . \
+helm install heimdall heimdall2 \
     -n $NAMESPACE --create-namespace \
     -f values.yaml \
     --set   databaseUsername=$DATABASE_USERNAME \
