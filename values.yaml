@@ -64,7 +64,7 @@ heimdall:
   image:
     repository: mitre/heimdall2
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: "2.6.41"
 
   service:
     type: ClusterIP

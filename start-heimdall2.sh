@@ -16,10 +16,12 @@ DATABASE_PASSWORD="$(openssl rand -hex 33)"
 JWT_SECRET="$(openssl rand -hex 64)"
 JWT_TIMEOUT="1d"
 API_KEY_SECRET="$(openssl rand -hex 33)"
+NAMESPACE="heimdall"
 
 # Install heimdall
 helm install heimdall . \
-     -f values.yaml \
+    -n $NAMESPACE --create-namespace \
+    -f values.yaml \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \

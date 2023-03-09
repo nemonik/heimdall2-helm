@@ -35,7 +35,7 @@ The start_heimdall.sh script generates some of these values for you, and demonst
 ## To install via MITRE chart repository
 
 ```
-helm repo add nemonik https://mitre.github.io/heimdall2-helm/
+helm repo add heimdall2-helm https://mitre.github.io/heimdall2-helm/
 helm repo update
 helm search repo heimdall2
 wget https://raw.githubusercontent.com/mitre/heimdall2-helm/master/values.yaml

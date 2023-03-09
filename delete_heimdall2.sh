@@ -11,4 +11,6 @@
 
 source .env
 
+NAMESPACE="heimdall"
+
 helm uninstall heimdall -n $NAMESPACE
