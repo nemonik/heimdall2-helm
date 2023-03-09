@@ -1,1 +1,3 @@
 .env
+.cr-release-packages/
+.cr-index/
