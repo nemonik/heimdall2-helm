@@ -5,3 +5,19 @@ description: A Helm chart for Kubernetes
 type: application
 version: 2.6.42
 appVersion: "2.6.42"
+
+annotations:
+  artifacthub.io/category: security 
+  artifacthub.io/license: Apache-2.0
+  artifacthub.io/links: |
+    - name: support
+      url: https://github.com/mitre/heimdall2-helm/issues
+    - name: Additional Security Automation Framework Resources
+      url: https://saf.mitre.org
+  artifacthub.io/maintainers: |
+    - name: MITRE SAF Team
+      email: saf@groups.mitre.org 
+  artifacthub.io/prerelease: "false"
+  artifacthub.io/screenshots: |
+    - title: Heimdall Security Data Visualization
+      url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
