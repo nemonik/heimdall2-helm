@@ -73,6 +73,8 @@ spec:
               value: {{ .Values.jwtTimeout | quote }}
             - name: API_KEY_SECRET
               value: {{ .Values.apiKeySecret | quote }}
+            - name: EXTERNAL_URL
+              value: {{ .Values.externalUrl | quote }}
             - name: OIDC_NAME
               value: {{ .Values.oidcName | quote }}
             - name: OIDC_ISSUER
@@ -87,8 +89,12 @@ spec:
               value: {{ .Values.oidcClientId | quote }}
             - name: OIDC_CLIENT_SECRET
               value: {{ .Values.oidcClientSecret | quote }}
-            - name: EXTERNAL_URL
-              value: {{ .Values.externalUrl | quote }}
+            - name: OKTA_DOMAIN
+              value: {{ .Values.oktaDomain | quote }}
+            - name: OKTA_CLIENTID
+              value: {{ .Values.oktaClientId | quote }}
+            - name: OKTA_CLIENTSECRET
+              value: {{ .Values.oktaClientSecret | quote }}
           livenessProbe:
             httpGet:
               path: /

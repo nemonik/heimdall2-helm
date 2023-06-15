@@ -27,11 +27,11 @@ helm install heimdall heimdall2 \
     --set   jwtSecret=$JWT_SECRET \
     --set   jwtTimeout=$JWT_TIMEOUT \
     --set   apiKeySecret=$API_KEY_SECRET \
+    --set   externalUrl=$EXTERNAL_URL \
     --set   oidcName=$OIDC_NAME \
     --set   oidcIssuer=$OIDC_ISSUER \
     --set   oidcAuthorizationUrl=$OIDC_AUTHORIZATION_URL \
     --set   oidcTokenUrl=$OIDC_TOKEN_URL \
     --set   oidcUserInfoUrl=$OIDC_USER_INFO_URL \
     --set   oidcClientId=$OIDC_CLIENTID \
-    --set   oidcClientSecret=$OIDC_CLIENT_SECRET \
-    --set   externalUrl=$EXTERNAL_URL
+    --set   oidcClientSecret=$OIDC_CLIENT_SECRET
