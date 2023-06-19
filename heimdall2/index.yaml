@@ -1,0 +1,28 @@
+apiVersion: v1
+entries:
+  heimdall:
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/mitre/heimdall2-helm/issues
+        - name: Additional Security Automation Framework Resources
+          url: https://saf.mitre.org
+      artifacthub.io/maintainers: "- name: MITRE SAF Team\n  email: saf@groups.mitre.org
+        \n"
+      artifacthub.io/prerelease: "false"
+      artifacthub.io/screenshots: |-
+        - title: Heimdall Security Data Visualization
+          url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
+    apiVersion: v2
+    appVersion: 2.6.42
+    created: "2023-06-19T12:14:11.498857-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 94cf898a91fc7c74a9816c40479b995ec11e0a7214e4fdc8a26d8e8451080882
+    name: heimdall
+    type: application
+    urls:
+    - heimdall-2.6.42.tgz
+    version: 2.6.42
+generated: "2023-06-19T12:14:11.496615-05:00"
