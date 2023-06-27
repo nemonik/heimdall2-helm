@@ -17,12 +17,12 @@ entries:
           url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
     apiVersion: v2
     appVersion: 2.6.42
-    created: "2023-06-27T11:19:46.973367-05:00"
+    created: "2023-06-27T11:58:38.899397-05:00"
     description: A Helm chart for Kubernetes
-    digest: 7d44006073925435cac316f839b404545092b4708cf942756a3c00883d32e578
+    digest: 219604d0f89b29c6693ddf69382f6718a10032f4f65d99c6224cc8c317fbf3d1
     name: heimdall
     type: application
     urls:
     - heimdall-2.6.42.tgz
     version: 2.6.42
-generated: "2023-06-27T11:19:46.972364-05:00"
+generated: "2023-06-27T11:58:38.898089-05:00"
