@@ -27,6 +27,9 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
+  {{- if .Values.heimdall.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.heimdall.ingress.ingressClassName }}
+  {{- end }}
   rules:
   {{- range .Values.heimdall.ingress.hosts }}
     - host: {{ .host | quote }}
