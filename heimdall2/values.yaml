@@ -19,8 +19,7 @@ databaseUsername: postgres
 
 ## Set `1d` or `25m`
 ##
-# jwtTimeout: 25m
-
+# jwtExpireTime: 25m
 
 postgresql:
   enabled: true
