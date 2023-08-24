@@ -74,7 +74,11 @@ spec:
             - name: API_KEY_SECRET
               value: {{ .Values.apiKeySecret | quote }}
             - name: LOCAL_LOGIN_DISABLED
-              value: {{ .Values.localLoginDisabled | quote }}
+              value: {{ .Values.localLoginDisabled }}
+            - name: ADMIN_EMAIL
+              value: {{ .Values.adminEmail }}
+            - name: ADMIN_USES_EXTERNAL_AUTH
+              value: {{ .Values.adminUsesExternalAuth }}
             - name: EXTERNAL_URL
               value: {{ .Values.externalUrl | quote }}
             - name: OIDC_NAME

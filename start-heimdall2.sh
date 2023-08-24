@@ -14,7 +14,7 @@ source .env
 DATABASE_USERNAME="postgres"
 DATABASE_PASSWORD="$(openssl rand -hex 33)"
 JWT_SECRET="$(openssl rand -hex 64)"
-JWT_TIMEOUT="1d"
+JWT_EXPIRE_TIME="1d"
 API_KEY_SECRET="$(openssl rand -hex 33)"
 NAMESPACE="heimdall"
 
@@ -25,7 +25,7 @@ helm install heimdall heimdall2 \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \
-    --set   jwtTimeout=$JWT_TIMEOUT \
+    --set   jwtExpireTime=$JWT_EXPIRE_TIME \
     --set   apiKeySecret=$API_KEY_SECRET \
     --set   externalUrl=$EXTERNAL_URL \
     --set   oidcName=$OIDC_NAME \
