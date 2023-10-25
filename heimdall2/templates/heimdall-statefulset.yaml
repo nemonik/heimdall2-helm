@@ -51,7 +51,7 @@ spec:
               value: {{ .Values.postgresql.service.port | quote }}
             {{- else }}
               value: {{.Values.databasePort | quote }}
-            {{- end }}           
+            {{- end }}
             - name: DATABASE_NAME
               value: {{ .Values.databaseName | quote }}
             - name: DATABASE_USERNAME
@@ -64,6 +64,25 @@ spec:
                 secretKeyRef:
                   name: {{ include "heimdall.fullname" . }}
                   key: databasePassword
+            - name: DATABASE_SSL
+              value: {{ .Values.databaseSsl | quote }}
+            - name: DATABASE_SSL_INSECURE
+              value: {{ .Values.databaseSslInsecure | quote }}
+            - name: DATABASE_SSL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: databaseSslKey
+            - name: DATABASE_SSL_CERT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: databaseSslCert
+            - name: DATABASE_SSL_CA
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: databaseSslCa
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
