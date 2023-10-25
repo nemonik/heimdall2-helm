@@ -91,7 +91,10 @@ spec:
             - name: JWT_EXPIRE_TIME
               value: {{ .Values.jwtExpireTime | quote }}
             - name: API_KEY_SECRET
-              value: {{ .Values.apiKeySecret | quote }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: apiKeySecret
             - name: LOCAL_LOGIN_DISABLED
               value: {{ .Values.localLoginDisabled }}
             - name: ADMIN_EMAIL
