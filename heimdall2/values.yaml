@@ -70,16 +70,7 @@ heimdall:
     port: 3000
 
   ingress:
-    # tls: 
-    #   - name: nginx
-    #     secretName: ingress-secret
-    #     hosts:
-    #       - heimdall.example.com
     enabled: true
-    annotations:
-     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-     traefik.ingress.kubernetes.io/router.tls: "true"
-     traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
       - host: localhost
         paths:
@@ -90,6 +81,18 @@ heimdall:
                 name: heimdall
                 port:
                   number: 3000
+    annotations:
+    #   traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    #   traefik.ingress.kubernetes.io/router.tls: "true"
+    #   traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
+      ## Change this annotation to false if using an ingress that is not the default for the cluster - you will probably also want to set `className`.
+      ingressclass.kubernetes.io/is-default-class: "true"
+    # className:
+    # tls:
+    #   - name: nginx
+    #     secretName: ingress-secret
+    #     hosts:
+    #       - heimdall.example.com
 
   podAnnotations: {}
   
