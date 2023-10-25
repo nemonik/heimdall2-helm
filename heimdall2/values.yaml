@@ -1,11 +1,9 @@
 nodeEnv: production
 
 ## Set FDQN for external database host or set `posgresql.enabled` equal to `true`
-## 
 #databaseHost: postgresql.example.com
 
-## Set external database port or set `posgresql.enabled` equal to `true`
-##
+## Set external database port or set `postgresql.enabled` equal to `true`
 #databasePort: 5672
 databaseName: heimdall-database
 databaseUsername: postgres
@@ -14,11 +12,9 @@ databaseUsername: postgres
 # databasePassword: long-random-string-of-text
 
 ## Generate the following via `openssl rand -hex 64` and set
-##
 # jwtSecret: long-random-string-of-text
 
 ## Set `1d` or `25m`
-##
 # jwtExpireTime: 25m
 
 postgresql:
@@ -31,11 +27,9 @@ postgresql:
 
   persistence:
     ## Volume used to store the Heimdall's data. Default is boolean `false`.
-    ##
     enabled: false
     size: "100Mi"
     ## Sets persistent volume claim's storageClassName. Defaults to `default`.
-    ##
     storageClassName: "default"
     accessMode: "ReadWriteOnce"
 
@@ -63,7 +57,7 @@ heimdall:
   image:
     repository: mitre/heimdall2
     pullPolicy: IfNotPresent
-    tag: "release-latest"
+    tag: "2.8.7"
 
   service:
     type: ClusterIP
@@ -95,16 +89,16 @@ heimdall:
     #       - heimdall.example.com
 
   podAnnotations: {}
-  
+
   podSecurityContext: {}
-  
+
   securityContext: {}
-  
+
   resources: {}
-  
+
   nodeSelector: {}
-  
+
   tolerations: []
-  
+
   affinity: {}
 
