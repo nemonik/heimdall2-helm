@@ -18,37 +18,13 @@ entries:
           url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
     apiVersion: v2
     appVersion: 2.8.7
-    created: "2023-10-25T06:13:21.494079-04:00"
+    created: "2023-10-25T06:20:37.49245-04:00"
     description: Heimdall2 lets you view, store, and compare automated security control
       scan results.
-    digest: 25eb9a2f05d24b356975b07fdaeecca0f15f21b1905cf378f508ac380023a079
+    digest: 6c3e638bf63e7fbff49b495c6b526c60b82b1b224dad6bddfe61f3e8a6ed5a21
     name: heimdall
     type: application
     urls:
     - heimdall-3.0.0.tgz
     version: 3.0.0
-  - annotations:
-      artifacthub.io/category: security
-      artifacthub.io/license: Apache-2.0
-      artifacthub.io/links: |
-        - name: support
-          url: https://github.com/mitre/heimdall2-helm/issues
-        - name: Additional Security Automation Framework Resources
-          url: https://saf.mitre.org
-      artifacthub.io/maintainers: "- name: MITRE SAF Team\n  email: saf@groups.mitre.org
-        \n"
-      artifacthub.io/prerelease: "false"
-      artifacthub.io/screenshots: |-
-        - title: Heimdall Security Data Visualization
-          url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
-    apiVersion: v2
-    appVersion: 2.6.42
-    created: "2023-10-25T06:13:21.492969-04:00"
-    description: A Helm chart for Kubernetes
-    digest: 452917088c80c25403147cbc2d89ef25a560aba43aef81120ef59d60f29f8f52
-    name: heimdall
-    type: application
-    urls:
-    - heimdall-2.6.42.tgz
-    version: 2.6.42
-generated: "2023-10-25T06:13:21.491571-04:00"
+generated: "2023-10-25T06:20:37.489612-04:00"
