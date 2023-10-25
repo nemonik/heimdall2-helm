@@ -1,13 +1,13 @@
 apiVersion: v2
 name: heimdall
-description: A Helm chart for Kubernetes
+description: Heimdall2 lets you view, store, and compare automated security control scan results.
 
 type: application
 version: 3.0.0
 appVersion: "2.8.7"
 
 annotations:
-  artifacthub.io/category: security 
+  artifacthub.io/category: security
   artifacthub.io/license: Apache-2.0
   artifacthub.io/links: |
     - name: support
@@ -16,7 +16,7 @@ annotations:
       url: https://saf.mitre.org
   artifacthub.io/maintainers: |
     - name: MITRE SAF Team
-      email: saf@groups.mitre.org 
+      email: saf@groups.mitre.org
   artifacthub.io/prerelease: "false"
   artifacthub.io/screenshots: |
     - title: Heimdall Security Data Visualization
