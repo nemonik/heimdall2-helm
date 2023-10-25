@@ -2,20 +2,25 @@ nodeEnv: production
 
 ## Set FDQN for external database host or set `posgresql.enabled` equal to `true`
 #databaseHost: postgresql.example.com
-
 ## Set external database port or set `postgresql.enabled` equal to `true`
 #databasePort: 5672
 databaseName: heimdall-database
 databaseUsername: postgres
-
-## Set postgres user's password via `openssl rand -hex 33` 
+## Set postgres user's password via `openssl rand -hex 33`
 # databasePassword: long-random-string-of-text
+# databaseSsl: default false
+# databaseSslInsecure: default false
+# databaseSslKey: path-or-raw-key
+# databaseSslCert: path-or-raw-cert
+# databaseSslCa: path-or-raw-ca
 
 ## Generate the following via `openssl rand -hex 64` and set
 # jwtSecret: long-random-string-of-text
-
 ## Set `1d` or `25m`
 # jwtExpireTime: 25m
+
+## Generate the following via `openssl rand -hex 33` and set
+# apiKeySecret = different-long-random-string-of-text
 
 postgresql:
   enabled: true
@@ -81,7 +86,7 @@ heimdall:
     #   traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
       ## Change this annotation to false if using an ingress that is not the default for the cluster - you will probably also want to set `className`.
       ingressclass.kubernetes.io/is-default-class: "true"
-    # className:
+    # className: ingress class name
     # tls:
     #   - name: nginx
     #     secretName: ingress-secret
