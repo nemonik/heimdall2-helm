@@ -81,7 +81,7 @@ heimdall:
      traefik.ingress.kubernetes.io/router.tls: "true"
      traefik.ingress.kubernetes.io/service.sticky.cookie: "true"
     hosts:
-      - host: heimdall-test.sandbox.c2il.org
+      - host: localhost
         paths:
           - path: /
             pathType: Prefix
