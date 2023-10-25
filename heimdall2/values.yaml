@@ -114,7 +114,7 @@ heimdall:
   image:
     repository: mitre/heimdall2
     pullPolicy: IfNotPresent
-    tag: "2.8.7"
+    tag: "release-latest"
 
   service:
     type: ClusterIP

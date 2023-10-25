@@ -4,7 +4,7 @@ description: Heimdall2 lets you view, store, and compare automated security cont
 
 type: application
 version: 3.0.0
-appVersion: "2.8.7"
+appVersion: "release-latest"
 
 annotations:
   artifacthub.io/category: security
