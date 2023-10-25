@@ -1,3 +1,5 @@
+## Please see the following link for explanations on many of the Heimdall specific envvars: https://github.com/mitre/heimdall2/wiki/Environment-Variables-Configuration
+
 nodeEnv: production
 
 ## Set FDQN for external database host or set `posgresql.enabled` equal to `true`
