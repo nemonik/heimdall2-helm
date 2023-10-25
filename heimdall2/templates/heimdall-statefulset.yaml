@@ -96,18 +96,18 @@ spec:
                   name: {{ include "heimdall.fullname" . }}
                   key: apiKeySecret
             - name: ADMIN_EMAIL
-              value: {{ .Values.adminEmail }}
+              value: {{ .Values.adminEmail | quote }}
             - name: ADMIN_USES_EXTERNAL_AUTH
-              value: {{ .Values.adminUsesExternalAuth }}
+              value: {{ .Values.adminUsesExternalAuth | quote }}
             - name: ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "heimdall.fullname" . }}
                   key: adminPassword
             - name: LOCAL_LOGIN_DISABLED
-              value: {{ .Values.localLoginDisabled }}
+              value: {{ .Values.localLoginDisabled | quote }}
             - name: REGISTRATION_DISABLED
-              value: {{ .Values.registrationDisabled }}
+              value: {{ .Values.registrationDisabled | quote }}
             - name: EXTERNAL_URL
               value: {{ .Values.externalUrl | quote }}
             - name: ONE_SESSION_PER_USER
@@ -129,9 +129,9 @@ spec:
                   name: {{ include "heimdall.fullname" . }}
                   key: githubClientSecret
             - name: GITHUB_ENTERPRISE_INSTANCE_BASE_URL
-              value: {{ .Values.githubEnterpriseInstanceBaseUrl }}
+              value: {{ .Values.githubEnterpriseInstanceBaseUrl | quote }}
             - name: GITHUB_ENTERPRISE_INSTANCE_API_URL
-              value: {{ .Values.githubEnterpriseInstanceApiUrl }}
+              value: {{ .Values.githubEnterpriseInstanceApiUrl | quote }}
             - name: GITLAB_CLIENTID
               valueFrom:
                 secretKeyRef:
@@ -143,7 +143,7 @@ spec:
                   name: {{ include "heimdall.fullname" . }}
                   key: gitlabClientSecret
             - name: GITLAB_BASEURL
-              value: {{ .Values.gitlabBaseUrl }}
+              value: {{ .Values.gitlabBaseUrl | quote }}
             - name: GOOGLE_CLIENTID
               valueFrom:
                 secretKeyRef:
