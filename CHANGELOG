@@ -1,0 +1,12 @@
+# 3.0.0
+Move some attributes from 'data' to 'stringData' in heimdall-secrets @em-c-rod
+Add several envvars and remove redundant ones @em-c-rod
+Add support for the `ingressClassName` @lcotonea (thank you for the contribution!)
+Documentation and helper script consistency and improvements @Amndeep7
+Releases now are triggered manually instead of on-push to master @Amndeep7
+Added remaining envvars @Amndeep7
+
+## BREAKING CHANGES
+Added an annotation on the ingress saying to use the default ingress @Amndeep7
+Chart will now point at a specific Heimdall release tag instead of at 'release-latest' @Amndeep7
+Some envvars are now sourced from the secrets resource instead of being plainly available @Amndeep7
