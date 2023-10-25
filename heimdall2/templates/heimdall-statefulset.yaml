@@ -101,6 +101,11 @@ spec:
               value: {{ .Values.adminEmail }}
             - name: ADMIN_USES_EXTERNAL_AUTH
               value: {{ .Values.adminUsesExternalAuth }}
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: adminPassword
             - name: EXTERNAL_URL
               value: {{ .Values.externalUrl | quote }}
             - name: OIDC_NAME
