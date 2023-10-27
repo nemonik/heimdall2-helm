@@ -17,14 +17,14 @@ entries:
         - title: Heimdall Security Data Visualization
           url: https://github.com/mitre/docs-mitre-inspec/raw/master/images/Heimdall_demo.gif
     apiVersion: v2
-    appVersion: 2.8.7
-    created: "2023-10-25T06:20:37.49245-04:00"
+    appVersion: release-latest
+    created: "2023-10-27T12:26:49.636358-04:00"
     description: Heimdall2 lets you view, store, and compare automated security control
       scan results.
-    digest: 6c3e638bf63e7fbff49b495c6b526c60b82b1b224dad6bddfe61f3e8a6ed5a21
+    digest: 3151f32a2aa5032731220f753d14dd666b4ec2dfec32cde633f6153dcc1362b5
     name: heimdall
     type: application
     urls:
     - heimdall-3.0.0.tgz
     version: 3.0.0
-generated: "2023-10-25T06:20:37.489612-04:00"
+generated: "2023-10-27T12:26:49.634643-04:00"
