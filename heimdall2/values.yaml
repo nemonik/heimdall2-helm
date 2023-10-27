@@ -2,6 +2,8 @@
 
 nodeEnv: production
 
+# maxFileUploadSize = size-in-megabytes (default 50)
+
 ## Set FDQN for external database host or set `posgresql.enabled` equal to `true`
 #databaseHost: postgresql.example.com
 ## Set external database port or set `postgresql.enabled` equal to `true`

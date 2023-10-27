@@ -40,6 +40,8 @@ spec:
           env:
             - name: NODE_ENV
               value: {{ .Values.nodeEnv | quote }}
+            - name: MAX_FILE_UPLOAD_SIZE
+              value: {{ .Values.maxFileUploadSize | quote }}
             - name: DATABASE_HOST
             {{- if .Values.postgresql.enabled }}
               value: {{ template "heimdall.fullname" . }}-postgresql
