@@ -214,6 +214,15 @@ spec:
               value: {{ .Values.ldapNameField | quote }}
             - name: LDAP_MAILFIELD
               value: {{ .Values.ldapMailField | quote }}
+            - name: LDAP_SSL
+              value: {{ .Values.ldapSsl | quote }}
+            - name: LDAP_SSL_INSECURE
+              value: {{ .Values.ldapSslInsecure | quote }}
+            - name: LDAP_SSL_CA
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "heimdall.fullname" . }}
+                  key: ldapSslCa
           livenessProbe:
             httpGet:
               path: /

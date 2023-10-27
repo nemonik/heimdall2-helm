@@ -49,6 +49,9 @@ databaseUsername: postgres
 # ldapSearchFilter: ex. "sAMAccountName={{username}}"
 # ldapNameField: default name
 # ldapMailField: default mail
+# ldapSsl: default false
+# ldapSslInsecure: default false
+# ldapSslCa: path-or-raw-ca
 
 # googleClientId: value-from-google
 # googleClientSecret: value-from-google
