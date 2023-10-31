@@ -74,7 +74,7 @@ heimdall:
 ``` 
 
 This example uses Traefik to expose the ingress.  Configuring Traefik is out of scope of this 
-readme.  
+readme.
 
 
 ## License

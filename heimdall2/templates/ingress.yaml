@@ -1,5 +1,5 @@
-{{- if and .Values.heimdall.ingress.enabled -}}
-{{- $kubeVersion := .Capabilities.KubeVersion.GitVersion   -}}
+{{- if .Values.heimdall.ingress.enabled -}}
+{{- $kubeVersion := .Capabilities.KubeVersion.GitVersion -}}
 {{- if semverCompare ">=1.14-0" $kubeVersion -}}
 {{- $fullName := include "heimdall.fullname" . -}}
 {{- if semverCompare ">=1.19-0" $kubeVersion -}}
@@ -27,6 +27,9 @@ spec:
       secretName: {{ .secretName }}
   {{- end }}
 {{- end }}
+  {{- if and .Values.heimdall.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
+  ingressClassName: {{ .Values.heimdall.ingress.className }}
+  {{- end }}
   rules:
   {{- range .Values.heimdall.ingress.hosts }}
     - host: {{ .host | quote }}
@@ -40,8 +43,7 @@ spec:
                 name: {{ .backend.service.name }}
                 port:
                   number: {{ .backend.service.port.number }}
-
-    {{- end }}
+        {{- end }}
   {{- end }}
 {{- end }}
 {{- end }}
