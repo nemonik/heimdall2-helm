@@ -10,3 +10,4 @@ Default initial delay in the liveness/readiness probes are 80s instead of 180s @
 ## BREAKING CHANGES
 Some envvars are now sourced from the secrets resource instead of being plainly available @Amndeep7
 Commented out the traefik annotations @Amndeep7
+Helm chart version and app version are now appropriately desynced @Amndeep7
