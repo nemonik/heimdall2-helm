@@ -31,8 +31,11 @@ jobs:
           echo "${{ github.workspace }}"
           pwd
           ls -lah
+          echo '1'
           git diff --find-renames --name-only "heimdall-2.6.41" -- "${{ github.workspace }}"
+          echo '2'
           git diff --find-renames --name-only "heimdall-2.6.41" -- "${{ github.workspace }}/heimdall2"
+          echo '3'
           git diff --find-renames --name-only "heimdall-2.6.41" -- "heimdall2"
 
       - name: Run chart-releaser
