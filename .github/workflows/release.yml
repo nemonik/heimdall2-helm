@@ -37,6 +37,10 @@ jobs:
           git diff --find-renames --name-only "heimdall-2.6.41" -- "${{ github.workspace }}/heimdall2"
           echo '3'
           git diff --find-renames --name-only "heimdall-2.6.41" -- "heimdall2"
+          echo '4'
+          cd heimdall2
+          git diff --find-renames --name-only "heimdall-2.6.41" -- "."
+          tr "/" "\n" <<<"." | sed '/^\(\.\)*$/d' | wc -l
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
