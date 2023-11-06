@@ -26,25 +26,13 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         uses: azure/setup-helm@v3
 
-      - name: debugging
+      - name: Change directories to where the charts are defined so the action can find the changed files properly
         run: |
-          echo "${{ github.workspace }}"
-          pwd
-          ls -lah
-          echo '1'
-          git diff --find-renames --name-only "heimdall-2.6.41" -- "${{ github.workspace }}"
-          echo '2'
-          git diff --find-renames --name-only "heimdall-2.6.41" -- "${{ github.workspace }}/heimdall2"
-          echo '3'
-          git diff --find-renames --name-only "heimdall-2.6.41" -- "heimdall2"
-          echo '4'
           cd heimdall2
-          git diff --find-renames --name-only "heimdall-2.6.41" -- "."
-          tr "/" "\n" <<<"." | sed '/^\(\.\)*$/d' | wc -l
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.5.0
+        uses: helm/chart-releaser-action@v1.6.0
         with:
-          charts_dir: "${{ github.workspace }}/heimdall2"
+          charts_dir: "."
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
