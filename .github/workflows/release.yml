@@ -26,6 +26,12 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         uses: azure/setup-helm@v3
 
+      - name: debugging
+        run: |
+          echo "${{ github.workspace }}"
+          pwd
+          ls -lah
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         with:
