@@ -3,7 +3,7 @@ Move some attributes from 'data' to 'stringData' in heimdall-secrets @em-c-rod
 Add several envvars and remove redundant ones @em-c-rod
 Add support for the `ingressClassName` @lcotonea (thank you for the contribution!)
 Documentation and helper script consistency and improvements @Amndeep7
-Releases now are triggered manually instead of on-push to master @Amndeep7
+Releases can now be triggered manually instead of only on-push to master @Amndeep7
 Added remaining envvars @Amndeep7
 Default initial delay in the liveness/readiness probes are 80s instead of 180s @Amndeep7
 
