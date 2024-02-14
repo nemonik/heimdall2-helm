@@ -28,6 +28,28 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.heimdall.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: injectedCerts
+          configMap:
+            name: {{ .Values.certs.name }}
+        {{- range .Values.certs.processedCertsMountPaths }}
+        - name: "processedCerts - {{ . }}"
+          emptyDir:
+        {{- end }}
+      initContainers:
+        - name: setup-certs
+          securityContext:
+            {{- toYaml .Values.certs.securityContext | nindent 12 }}
+          image: "{{ .Values.certs.image.repository }}:{{ .Values.certs.image.tag }}"
+          imagePullPolicy: {{ .Values.certs.image.pullPolicy }}
+          command: {{ .Values.certs.command }}
+          volumes:
+            - name: injectedCerts
+              mountPath: {{ .Values.certs.injectedCertsMountPath }}
+            {{- range .Values.certs.processedCertsMountPaths }}
+            - name: "processedCerts - {{ . }}"
+              mountPath: {{ . }}
+            {{- end }}
       containers:
         - name: heimdall-front
           securityContext:
@@ -37,6 +59,10 @@ spec:
           ports:
             - name: http
               containerPort: 3000
+          volumeMounts:
+            - name: processedCerts
+              mountPath: {{ .Values.certs.processedCertsMountPath }}
+              readOnly: true
           env:
             - name: NODE_ENV
               value: {{ .Values.nodeEnv | quote }}
