@@ -11,20 +11,20 @@ Written for Helm 3.
 You can clone this repo, enter the repository folder and then execute something like the [start_heimdall2.sh](start_heimdall2.sh):
 
 ```
-./start_heimdal2.sh
+./start_heimdall2.sh
 ```
 
-The script will spin up Heimdall2 using the example [values.yaml](values.yaml) values file.  You will need
-to provide your own if you want to configure other settings, and ingress, etc.  Look at the [values.yaml](values.yaml)
+The script will spin up Heimdall2 using the example [values.yaml](heimdall2/values.yaml) values file.  You will need
+to provide your own if you want to configure other settings, and ingress, etc.  Look at the [values.yaml](heimdall2/values.yaml)
 file for what to place in your own.
 
 To generate the postgres user's password consider using
 
 ```bash
 openssl rand -hex 33
-``` 
+```
 
-And to to generate a value for JWS_SECRET consider using 
+And to to generate a value for JWS_SECRET consider using
 
 ```bash
 openssl rand -hex 64
@@ -71,7 +71,7 @@ heimdall:
         paths:
           -  "/"
     tls: []
-``` 
+```
 
 This example uses Traefik to expose the ingress.  Configuring Traefik is out of scope of this 
 readme.

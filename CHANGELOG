@@ -1,3 +1,7 @@
+# 3.1.0
+Add an addiitonal values.yml section to provide cacerts
+Added a init container that will process the provided cacerts, and a volume to deliver them to the Heimdall container
+
 # 3.0.0
 Move some attributes from 'data' to 'stringData' in heimdall-secrets @em-c-rod
 Add several envvars and remove redundant ones @em-c-rod
