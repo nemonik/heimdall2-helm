@@ -21,7 +21,7 @@ NAMESPACE="heimdall"
 # Install heimdall
 helm install heimdall heimdall2-helm/heimdall \
     -n $NAMESPACE --create-namespace \
-    -f values.yaml \
+    -f heimdall2/values.yaml \
     --set   databaseUsername=$DATABASE_USERNAME \
     --set   databasePassword=$DATABASE_PASSWORD \
     --set   jwtSecret=$JWT_SECRET \
