@@ -1,0 +1,43 @@
+# 3.3.4
+Updated license
+Repo was renamed to heimdall-helm and corresponding documentation updates
+Make stateful set respect the filename provided by the user when they have certificates enabled but the system certs approach disabled
+
+# 3.3.3
+Updated default postgres version to 17
+
+# 3.3.2
+Added support for the OIDC_USES_VERIFIED_EMAIL envvar
+
+# 3.3.1
+Updated license
+
+# 3.3.0
+Reworked certificates support
+
+# 3.2.1
+Minor fixes to the gateway functionality
+
+# 3.2.0
+Add SOPS secret support
+
+# 3.1.10
+Add external interfaces variables, specifically variables for splunk and tenable urls @georgedias
+
+# 3.1.0
+Add an addiitonal values.yml section to provide cacerts
+Added a init container that will process the provided cacerts, and a volume to deliver them to the Heimdall container
+
+# 3.0.0
+Move some attributes from 'data' to 'stringData' in heimdall-secrets @em-c-rod
+Add several envvars and remove redundant ones @em-c-rod
+Add support for the `ingressClassName` @lcotonea (thank you for the contribution!)
+Documentation and helper script consistency and improvements @Amndeep7
+Releases can now be triggered manually instead of only on-push to master @Amndeep7
+Added remaining envvars @Amndeep7
+Default initial delay in the liveness/readiness probes are 80s instead of 180s @Amndeep7
+
+## BREAKING CHANGES
+Some envvars are now sourced from the secrets resource instead of being plainly available @Amndeep7
+Commented out the traefik annotations @Amndeep7
+Helm chart version and app version are now appropriately desynced @Amndeep7

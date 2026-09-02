@@ -39,22 +39,28 @@ spec:
             - name: tcp-postgresql
               containerPort: 5432
           env:
+            {{- if .Values.databaseName }}
             - name: POSTGRES_DB
               value: {{ .Values.databaseName | quote }}
+            {{- end }}
             - name: PGDATA
               value: "/var/lib/postgresql/data/pgdata"
+            {{- if or .Values.databaseUsername (and .Values.sops.enabled (has "DATABASE_USERNAME" .Values.sops.secrets)) }}
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
                   name: {{ include "heimdall.fullname" . }}
                   key: databaseUsername
+            {{- end }}
+            {{- if or .Values.databasePassword (and .Values.sops.enabled (has "DATABASE_PASSWORD" .Values.sops.secrets)) }}
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "heimdall.fullname" . }}
                   key: databasePassword
+            {{- end }}
           volumeMounts:
-            - mountPath: "/var/lib/postgresql/data/pgdata"
+            - mountPath: "/var/lib/postgresql/data"
               name: postgresql-data
           {{- with .Values.postgresql.resources }}
           resources:
