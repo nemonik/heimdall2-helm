@@ -9,4 +9,8 @@
 
 # Uninstall Heimdall2
 
-helm uninstall heimdall2 --namespace heimdall2
+source .env
+
+NAMESPACE="heimdall"
+
+helm uninstall heimdall -n $NAMESPACE
